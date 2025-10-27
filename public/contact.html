@@ -45,24 +45,65 @@
         <div style="background:#fff; border-radius:18px; box-shadow:0 4px 24px rgba(0,0,0,0.08); padding:2.5rem 2rem;">
             <h1 style="text-align:center; color:#6b5b47; margin-bottom:2rem;">Contact Us</h1>
             <form id="contactForm" style="display:flex; flex-direction:column; gap:1.2rem;" autocomplete="off">
-                <div>
-                    <label for="name" style="color:#6b5b47; font-weight:600;">Your Name</label><br>
-                    <input type="text" id="name" name="name" required style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid #ddd;">
+                <!-- Parent Information -->
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                    <div>
+                        <label for="parentFirstName" style="color:#6b5b47; font-weight:600;">Parent First Name <span style="color:#e74c3c;">*</span></label><br>
+                        <input type="text" id="parentFirstName" name="parentFirstName" required style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid #ddd; margin-top:0.3rem;">
+                    </div>
+                    <div>
+                        <label for="parentLastName" style="color:#6b5b47; font-weight:600;">Parent Last Name <span style="color:#e74c3c;">*</span></label><br>
+                        <input type="text" id="parentLastName" name="parentLastName" required style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid #ddd; margin-top:0.3rem;">
+                    </div>
                 </div>
+                
                 <div>
-                    <label for="email" style="color:#6b5b47; font-weight:600;">Email Address</label><br>
-                    <input type="email" id="email" name="email" required style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid #ddd;">
+                    <label for="email" style="color:#6b5b47; font-weight:600;">Parent Email <span style="color:#e74c3c;">*</span></label><br>
+                    <input type="email" id="email" name="email" required style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid #ddd; margin-top:0.3rem;">
                 </div>
+                
+                <div>
+                    <label for="phone" style="color:#6b5b47; font-weight:600;">Phone Number <span style="color:#e74c3c;">*</span></label><br>
+                    <input type="tel" id="phone" name="phone" required style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid #ddd; margin-top:0.3rem;">
+                </div>
+
+                <!-- Student Information -->
+                <div id="studentContainer">
+                    <div class="student-info" style="margin-bottom:1rem;">
+                        <div>
+                            <label for="studentFirstName1" style="color:#6b5b47; font-weight:600;">Student First Name <span style="color:#e74c3c;">*</span></label><br>
+                            <input type="text" id="studentFirstName1" name="studentFirstName1" required style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid #ddd; margin-top:0.3rem;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Another Student Button -->
+                <div>
+                    <button type="button" id="addStudentBtn" style="color:#6b5b47; background:none; border:none; font-size:1rem; cursor:pointer; display:flex; align-items:center; gap:0.5rem; padding:0.5rem 0;">
+                        <span style="font-size:1.2rem;">⊕</span> Add another student
+                    </button>
+                </div>
+
+                <!-- Newsletter Subscription -->
+                <div style="margin:1rem 0;">
+                    <label style="display:flex; align-items:flex-start; gap:0.5rem; color:#6b5b47; cursor:pointer;">
+                        <input type="checkbox" id="newsletter" name="newsletter" style="margin-top:0.2rem;">
+                        <span>Yes, I would like to receive information about new courses, seasonal schedules, and event announcements from Dotori School.</span>
+                    </label>
+                </div>
+
+                <!-- Message Field -->
                 <div>
                     <label for="message" style="color:#6b5b47; font-weight:600;">Message</label><br>
-                    <textarea id="message" name="message" rows="5" required style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid #ddd;"></textarea>
+                    <textarea id="message" name="message" rows="5" style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid #ddd; margin-top:0.3rem;"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" style="padding:0.8rem 2rem; border-radius:30px; background:#6b5b47; color:#fff; font-size:1.1rem; font-weight:600; border:none;">Send Message</button>
+
+                <button type="submit" class="btn btn-primary" style="padding:0.8rem 2rem; border-radius:30px; background:#d2691e; color:#fff; font-size:1.1rem; font-weight:600; border:none; margin-top:1rem;">SUBMIT</button>
             </form>
             <div id="formMessage" style="margin-top:1rem; text-align:center;"></div>
             <div style="margin-top:2.5rem; text-align:center; color:#888;">
                 <p><strong>Email:</strong> info@dotorischool.org</p>
-                <p><strong>Phone:</strong> (425) 405-0822</p>
+                <p><strong>Phone:</strong> (425) 405-0822 (Please leave a voice or text message)</p>
                 <p><strong>Address:</strong> 12721 NE Bel Red Rd. #220 Bellevue WA 98005</p>
             </div>
         </div>
@@ -70,7 +111,7 @@
 
     <footer style="background:#f7f5f2; padding:2rem 0; text-align:center; color:#888;">
         <div class="container">
-            &copy; 2025 Dotori School. All rights reserved.
+            <p style="margin:0;">&copy; 2025 Dotori School. All rights reserved.</p>
         </div>
     </footer>
 
@@ -84,6 +125,35 @@
             navLinks.classList.toggle('nav-open');
         });
 
+        // Add student functionality
+        let studentCount = 1;
+        const addStudentBtn = document.getElementById('addStudentBtn');
+        const studentContainer = document.getElementById('studentContainer');
+        
+        if (addStudentBtn) {
+            addStudentBtn.addEventListener('click', function() {
+                studentCount++;
+                const newStudent = document.createElement('div');
+                newStudent.className = 'student-info';
+                newStudent.style.cssText = 'margin-bottom:1rem; position:relative;';
+                newStudent.innerHTML = `
+                    <div>
+                        <label for="studentFirstName${studentCount}" style="color:#6b5b47; font-weight:600;">Student First Name <span style="color:#e74c3c;">*</span></label><br>
+                        <input type="text" id="studentFirstName${studentCount}" name="studentFirstName${studentCount}" required style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid #ddd; margin-top:0.3rem;">
+                    </div>
+                    <button type="button" class="remove-student" style="position:absolute; top:0; right:0; background:#e74c3c; color:white; border:none; border-radius:50%; width:24px; height:24px; font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center;">×</button>
+                `;
+                
+                studentContainer.appendChild(newStudent);
+                
+                // Add remove functionality
+                const removeBtn = newStudent.querySelector('.remove-student');
+                removeBtn.addEventListener('click', function() {
+                    newStudent.remove();
+                });
+            });
+        }
+
         // Contact form submission
         const form = document.getElementById('contactForm');
         const formMessage = document.getElementById('formMessage');
@@ -91,21 +161,46 @@
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 formMessage.textContent = '';
-                const name = form.name.value.trim();
-                const email = form.email.value.trim();
-                const message = form.message.value.trim();
+                
+                // Collect all form data
+                const formData = new FormData(form);
+                const data = {};
+                
+                // Get parent information
+                data.parentFirstName = formData.get('parentFirstName');
+                data.parentLastName = formData.get('parentLastName');
+                data.email = formData.get('email');
+                data.phone = formData.get('phone');
+                data.message = formData.get('message') || '';
+                data.newsletter = formData.get('newsletter') === 'on';
+                
+                // Get all student names
+                data.students = [];
+                for (let i = 1; i <= studentCount; i++) {
+                    const studentName = formData.get(`studentFirstName${i}`);
+                    if (studentName && studentName.trim()) {
+                        data.students.push(studentName.trim());
+                    }
+                }
 
                 try {
                     const res = await fetch('/api/contact', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name, email, message })
+                        body: JSON.stringify(data)
                     });
 
                     if (res.ok) {
                         form.reset();
                         formMessage.style.color = '#6b5b47';
                         formMessage.textContent = 'Thank you! Your message has been sent.';
+                        
+                        // Reset student count and container
+                        studentCount = 1;
+                        const studentInfos = studentContainer.querySelectorAll('.student-info');
+                        for (let i = 1; i < studentInfos.length; i++) {
+                            studentInfos[i].remove();
+                        }
                     } else {
                         const data = await res.json();
                         formMessage.style.color = 'red';
@@ -165,6 +260,11 @@
             width: 100%;
             padding: 1rem 2rem;
             border-bottom: 1px solid #eee;
+        }
+        
+        /* Form responsive styles */
+        #contactForm > div:first-child {
+            grid-template-columns: 1fr !important;
         }
     }
     @media (min-width: 769px) {

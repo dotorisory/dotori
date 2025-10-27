@@ -226,7 +226,7 @@
             color: #6b5b47;
         }
 
-        .program-features li::before {
+        .program-features >li::before {
             content: '✓';
             position: absolute;
             left: 0;

@@ -8,6 +8,63 @@
     <link rel="icon" type="image/x-icon" href="assets/images/logo.png">
 </head>
 <body>
+    <!-- Registration Popup -->
+    <div id="registrationPopup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 9999; font-family: Arial, sans-serif;">
+        <div style="background: #f8f6f3; padding: 30px 35px; border-radius: 15px; max-width: 480px; width: 90%; text-align: left; box-shadow: 0 8px 32px rgba(0,0,0,0.3); position: relative; line-height: 1.5;">
+            <button id="closePopup" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; color: #999; cursor: pointer; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">&times;</button>
+            
+            <div style="text-align: center; margin-bottom: 25px;">
+                <h2 style="margin: 0 0 10px 0; color: #6b5b47; font-size: 1.8rem;">Dotori School</h2>
+            </div>
+
+            <div style="background: #f8f6f3; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <p style="margin: 0 0 15px 0; font-size: 16px; color: #6b5b47;">
+                    <span style="font-size: 18px;">🍂</span> <strong>Fall Quarter registration is now closed.</strong>
+                </p>
+                
+                <p style="margin: 0 0 15px 0; font-size: 18px; color: #2c5282; font-weight: 600;">
+                    <span style="font-size: 20px;">❄️</span> Winter Quarter Registration
+                </p>
+                
+                <div style="margin-left: 20px; margin-bottom: 15px;">
+                    <p style="margin: 8px 0; color: #333;">
+                        <strong>Returning Students</strong><br>
+                        <span style="font-size: 16px;">👉</span> Opens December 1
+                    </p>
+                    
+                    <p style="margin: 8px 0; color: #333;">
+                        <strong>New Students — Early Bird Registration</strong><br>
+                        <span style="font-size: 16px;">👉</span> December 6 – 15
+                    </p>
+                    
+                    <p style="margin: 8px 0; color: #333;">
+                        <strong>General Registration Deadline</strong><br>
+                        <span style="font-size: 16px;">👉</span> December 28
+                    </p>
+                </div>
+                
+                <p style="margin: 15px 0 10px 0; color: #d2691e; font-weight: 600; font-size: 15px;">
+                    Returning students receive priority placement.
+                </p>
+                
+                <p style="margin: 5px 0 0 0; color: #e74c3c; font-weight: 600; font-size: 15px;">
+                    Max 4 students per class — spots fill quickly!
+                </p>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="display: flex; align-items: center; gap: 8px; color: #666; cursor: pointer; font-size: 14px;">
+                    <input type="checkbox" id="dontShowAgain" style="margin: 0;">
+                    <span>Don't show me this again</span>
+                </label>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="/contact" style="display: inline-block; padding: 12px 24px; background: #6b5b47; color: #fff; text-decoration: none; border-radius: 25px; font-weight: 600; font-size: 16px; margin-right: 10px;">Contact Us</a>
+                <button id="closePopupBtn" style="padding: 12px 24px; background: #e0e0e0; color: #666; border: none; border-radius: 25px; cursor: pointer; font-weight: 600; font-size: 16px;">Close</button>
+            </div>
+        </div>
+    </div>
         <!-- Popup Container -->
         <!-- <div id="popup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 9999; font-family: Arial, sans-serif;">
             <div style="background: #fff; padding: 20px 30px; border-radius: 10px; max-width: 420px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative;">
@@ -62,11 +119,28 @@
         <div style="background:#fff; border-radius:18px; box-shadow:0 4px 24px rgba(0,0,0,0.08); padding:2.5rem 2rem;">
             <h2 style="color:#6b5b47; margin-bottom:1rem; text-align:center;">About Dotori</h2>
             <p style="font-size:1.15rem; color:#444; margin-bottom:1.5rem; text-align:left;">
-                Dotori (도토리)—Korean for “acorn”—is where curiosity takes root and learning flourishes.<br>
-                We welcome learners into a warm, creative space filled with opportunities to grow in English reading and writing, as well as explore Korean language and culture. While our Reading and Writing programs are taught fully in English, our Korean classes offer engaging bilingual programs designed for both heritage and non-heritage learners.
+                Dotori (도토리)—Korean for “acorn”—is an in-person afterschool program located in the Redmond and Bellevue area.
+
+With classes of four students or fewer, we provide personalized guidance and close teacher support that help every child grow with confidence.
+
+Our program focuses on building strong foundations in English reading and writing, ensuring students develop the skills they need for long-term academic success. We also offer Korean language classes for families interested in meaningful cultural and heritage learning opportunities.
+
+Dotori is a great fit for families seeking small-group instruction, after-school enrichment, and a nurturing community that prioritizes each child’s individual growth and potential.
             </p>
             <div style="text-align:center; margin-top:1.5rem;">
                 <a href="about.html" class="btn btn-secondary" style="padding:0.6rem 1.5rem; border-radius:24px; background:#f7f5f2; color:#6b5b47; text-decoration:none; text-align:center;">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="container" style="max-width:900px; margin:48px auto;">
+        <div style="background:#fff; border-radius:18px; box-shadow:0 4px 24px rgba(0,0,0,0.08); padding:2.5rem 2rem;">
+            <h2 style="color:#6b5b47; margin-bottom:2rem; text-align:center;">Follow Our Journey</h2>
+            <!-- Elfsight Instagram Feed -->
+            <div style="margin:0 auto; max-width:600px;">
+                <script src="https://elfsightcdn.com/platform.js" async></script>
+                <div class="elfsight-app-ef6bdb4e-443f-4a21-9e02-d7bf753d9566" data-elfsight-app-lazy></div>
             </div>
         </div>
     </section>
@@ -157,7 +231,11 @@
 
     <footer style="background:#f7f5f2; padding:2rem 0; text-align:center; color:#888;">
         <div class="container">
-            &copy; 2025 Dotori School. All rights reserved.
+            <div style="margin-bottom:1rem;">
+                <p style="margin:0.3rem 0; color:#6b5b47; font-weight:600;">12721 NE Bel Red Rd. #220 (2nd Floor) Bellevue WA 98005</p>
+                <p style="margin:0.3rem 0; color:#6b5b47; font-weight:600;">info@dotorischool.org</p>
+            </div>
+            <p style="margin:0;">&copy; 2025 Dotori School. All rights reserved.</p>
         </div>
     </footer>
 
@@ -171,11 +249,122 @@
             navLinks.classList.toggle('nav-open');
         });
 
-        // Popup close functionality
-        const popup = document.getElementById('popup');
+        // Registration Popup functionality
+        const popup = document.getElementById('registrationPopup');
         const closeBtn = document.getElementById('closePopup');
-        closeBtn.addEventListener('click', function() {
+        const closeBtn2 = document.getElementById('closePopupBtn');
+        const dontShowAgainCheckbox = document.getElementById('dontShowAgain');
+        
+        if (!popup) {
+            console.error('Popup element not found');
+            return;
+        }
+        
+        // Check if user has permanently dismissed popup
+        const popupPermanentlyDismissed = localStorage.getItem('registrationPopupDismissed');
+        
+        console.log('Popup permanently dismissed:', popupPermanentlyDismissed);
+        
+        if (!popupPermanentlyDismissed) {
+            // Show popup on every page load unless permanently dismissed
+            console.log('Showing popup...');
+            setTimeout(() => {
+                popup.style.display = 'flex';
+            }, 500);
+        } else {
+            console.log('Popup permanently dismissed');
+        }
+        
+        // For testing: Add this to browser console to reset popup: 
+        // localStorage.removeItem('registrationPopupDismissed'); sessionStorage.removeItem('registrationPopupShown'); location.reload();
+        
+        // Close popup functionality
+        function closeRegistrationPopup() {
+            const dontShowAgain = dontShowAgainCheckbox && dontShowAgainCheckbox.checked;
+            
             popup.style.display = 'none';
+            
+            if (dontShowAgain) {
+                // Permanently dismiss popup
+                localStorage.setItem('registrationPopupDismissed', 'true');
+                console.log('Popup permanently dismissed');
+            } else {
+                // Just close for now - will show again on next page load/refresh
+                console.log('Popup closed temporarily - will show on next page load');
+            }
+        }
+        
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeRegistrationPopup);
+        }
+        
+        if (closeBtn2) {
+            closeBtn2.addEventListener('click', closeRegistrationPopup);
+        }
+        
+        // Close popup when clicking outside
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                closeRegistrationPopup();
+            }
+        });
+
+        // Hide Elfsight watermark/attribution link
+        function hideElfsightWatermark() {
+            // Multiple approaches to find and hide the watermark
+            
+            // Method 1: Look for links containing "elfsight.com"
+            const elfsightLinks = document.querySelectorAll('a[href*="elfsight.com"]');
+            elfsightLinks.forEach(link => {
+                if (link.textContent.includes('Free Instagram Feed widget') || 
+                    link.textContent.includes('Elfsight') ||
+                    link.title && link.title.includes('Free Instagram Feed widget')) {
+                    link.style.display = 'none';
+                    console.log('Hidden Elfsight watermark link');
+                }
+            });
+
+            // Method 2: Look for text content "Free Instagram Feed widget"
+            const allLinks = document.querySelectorAll('a');
+            allLinks.forEach(link => {
+                if (link.textContent.trim() === 'Free Instagram Feed widget' ||
+                    link.innerHTML.includes('Free Instagram Feed widget')) {
+                    link.style.display = 'none';
+                    console.log('Hidden Elfsight watermark by text content');
+                }
+            });
+
+            // Method 3: Look for specific styling patterns
+            const linksWithSpecificStyles = document.querySelectorAll('a[style*="border-radius:40px"]');
+            linksWithSpecificStyles.forEach(link => {
+                if (link.href && link.href.includes('elfsight.com')) {
+                    link.style.display = 'none';
+                    console.log('Hidden Elfsight watermark by style pattern');
+                }
+            });
+        }
+
+        // Run immediately and then periodically check for dynamically loaded content
+        hideElfsightWatermark();
+        
+        // Check again after Elfsight widget loads (multiple intervals)
+        setTimeout(hideElfsightWatermark, 1000);
+        setTimeout(hideElfsightWatermark, 3000);
+        setTimeout(hideElfsightWatermark, 5000);
+        
+        // Use MutationObserver to watch for DOM changes
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length > 0) {
+                    hideElfsightWatermark();
+                }
+            });
+        });
+        
+        // Start observing
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
         });
     });
     </script>
