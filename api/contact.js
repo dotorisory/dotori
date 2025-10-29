@@ -5,9 +5,22 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, message } = req.body;
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: 'All fields are required.' });
+  const { 
+    parentFirstName, 
+    parentLastName, 
+    email, 
+    phone, 
+    message, 
+    newsletter, 
+    students 
+  } = req.body;
+
+  if (!parentFirstName || !parentLastName || !email || !phone) {
+    return res.status(400).json({ error: 'All required fields must be filled out.' });
+  }
+
+  if (!students || students.length === 0 || !students[0]) {
+    return res.status(400).json({ error: 'At least one student name is required.' });
   }
 
   try {
@@ -21,12 +34,28 @@ module.exports = async (req, res) => {
       },
     });
 
+    const fullName = `${parentFirstName} ${parentLastName}`;
+    const studentsText = students && students.length > 0 
+      ? `<p><strong>Students:</strong> ${students.join(', ')}</p>` 
+      : '';
+    const newsletterText = newsletter 
+      ? '<p><strong>Newsletter:</strong> Yes, would like to receive updates</p>' 
+      : '';
+
     await transporter.sendMail({
-      from: `"${name}" <${email}>`,
+      from: `"${fullName}" <${email}>`,
       to: 'info@dotorischool.org',
-      subject: `Contact Form Submission from ${name}`,
-      text: message,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong><br>${message}</p>`
+      subject: `Contact Form Submission from ${fullName}`,
+      text: `Name: ${fullName}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\nMessage: ${message || 'No message'}\nStudents: ${students ? students.join(', ') : 'None'}\nNewsletter: ${newsletter ? 'Yes' : 'No'}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Parent Name:</strong> ${fullName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+        ${studentsText}
+        <p><strong>Message:</strong><br>${message || 'No message provided'}</p>
+        ${newsletterText}
+      `
     });
 
     res.status(200).json({ success: true });
