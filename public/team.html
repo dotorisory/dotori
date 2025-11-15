@@ -31,12 +31,12 @@
         </nav>
     </header>
 
-    <main class="container" style="max-width:900px; margin:48px auto;">
+    <main class="container" style="max-width:1200px; margin:48px auto;">
         <h1 style="text-align:center; color:#6b5b47; margin-bottom:2rem;">Meet Our Team</h1>
         <section class="profile-container">
             <section class="profile-card">
                 <img src="assets/images/yesol_profile.jpeg" alt="Teacher Yesol" class="profile-img">
-                <h2>Yesol Jung 
+                <h2>Yesol Jung (Mrs. Jung)
                     <a href="https://www.linkedin.com/in/yesol-jung-ab62a22b2" target="_blank" rel="noopener" style="margin-left:8px; vertical-align:middle; text-decoration:none;">
                         <i class="fa fa-linkedin-square" style="font-size:24px"></i>
                     </a>
@@ -47,7 +47,19 @@
                     <li><strong>Certifications:</strong> Washington State Teaching Certificates in Elementary Education, ELL, and Korean Language</li>
                     <li><strong>National Board Certified Teacher</strong></li>
                     <li><strong>Experience:</strong> 10+ years in public education, teaching in 20+ schools across Washington State</li>
-                    <li><strong>Specialty:</strong> Writing, Bilingual Literacy</li>
+                    <li><strong>Specialty:</strong> Writing, Reading Comprehension, Bilingual Literacy</li>
+                </ul>
+            </section>
+            
+            <section class="profile-card">
+                <img src="assets/images/stephanie_profile.png" alt="Teacher Stephanie" class="profile-img">
+                <h2>Stephanie Jung (Ms.Stephanie)</h2>
+                <h3>Teacher</h3>
+                <ul class="profile-details">
+                    <li><strong>Education:</strong> A.A., Irvine Valley College; TEFL Certificate, University of California, Irvine</li>
+                    <li><strong>Certifications:</strong> TEFL Certified, OPI Trained Korean Instructor</li>
+                    <li><strong>Experience:</strong> Currently teaching Korean in the SOFTS program, working with U.S. military members. Experienced in teaching children and adults through creative, student-centered lessons.</li>
+                    <li><strong>Specialty:</strong> Korean Language Learning, Student Engagement</li>
                 </ul>
             </section>
             <!-- Add more team members here as needed -->
@@ -180,7 +192,20 @@
         });
     </script>
     <style>
+    /* Responsive team grid layout */
+    .profile-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+    
     @media (max-width: 768px) {
+        .profile-container {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
         .logo-img {
             display: none !important;
         }
