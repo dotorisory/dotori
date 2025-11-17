@@ -53,7 +53,7 @@
             </section>
             
             <section class="profile-card">
-                <img src="assets/images/stephanie_profile.png" alt="Teacher Stephanie" class="profile-img">
+                <img src="assets/images/stephanie_profile.jpeg" alt="Teacher Stephanie" class="profile-img">
                 <h2>Stephanie Jung</h2>
                 <h2>(Ms.Stephanie)</h2>
                 <h3>Teacher</h3>
@@ -200,6 +200,22 @@
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
         align-items: start;
+    }
+    
+    /* Profile image styling */
+    .profile-img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+        margin: 0 auto 1rem auto;
+        display: block;
+    }
+    
+    /* Specific styling for Stephanie's photo to zoom in */
+    img[src*="stephanie_profile"] {
+        object-position: center top;
     }
     
     @media (max-width: 768px) {
