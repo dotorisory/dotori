@@ -212,16 +212,54 @@ npm run client
 
 ## Deployment
 
-### Vercel (Frontend + Backend)
-1. Connect GitHub repository
-2. Set environment variables in Vercel dashboard
-3. Deploy
+### Vercel (Recommended)
 
-### Heroku (Alternative)
+The project is configured for Vercel deployment with both frontend and backend.
+
+**Prerequisites:**
+- MongoDB Atlas account (free tier available at mongodb.com/cloud/atlas)
+- Vercel account (vercel.com)
+
+**Steps:**
+
+1. **Set up MongoDB Atlas:**
+   - Create a cluster on MongoDB Atlas
+   - Get your connection string
+   - Whitelist Vercel IP addresses (or allow access from anywhere: 0.0.0.0/0)
+
+2. **Deploy to Vercel:**
+   ```bash
+   # Install Vercel CLI (optional)
+   npm i -g vercel
+
+   # Deploy
+   vercel
+   ```
+
+3. **Set Environment Variables in Vercel Dashboard:**
+   - Go to your project settings on Vercel
+   - Add the following environment variables:
+     - `MONGODB_URI` - Your MongoDB Atlas connection string
+     - `SMTP_HOST` - smtp.gmail.com
+     - `SMTP_PORT` - 465
+     - `SMTP_SECURE` - true
+     - `SMTP_USER` - Your Gmail address
+     - `SMTP_PASS` - Your Gmail app password
+     - `NODE_ENV` - production
+
+4. **Redeploy** after setting environment variables
+
+**Notes:**
+- The React frontend is built and served as static files
+- The Express backend runs as Vercel serverless functions
+- MongoDB connections are cached for optimal performance
+- All API routes are handled through `/api/*`
+
+### Alternative: Heroku
 1. Create Heroku app
 2. Set config vars (environment variables)
 3. Connect to MongoDB Atlas
-4. Deploy
+4. Deploy with Git: `git push heroku main`
 
 ## Contact
 
