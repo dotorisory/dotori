@@ -1,49 +1,11 @@
 {
-  "version": 2,
-  "builds": [
+  "buildCommand": "cd client && npm ci && npm run build",
+  "outputDirectory": "client/build",
+  "installCommand": "npm install --prefix server",
+  "rewrites": [
     {
-      "src": "client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    },
-    {
-      "src": "server/index.js",
-      "use": "@vercel/node",
-      "config": {
-        "maxDuration": 10
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server/index.js"
-    },
-    {
-      "src": "/static/(.*)",
-      "dest": "client/build/static/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "client/build/assets/$1"
-    },
-    {
-      "src": "/favicon.ico",
-      "dest": "client/build/favicon.ico"
-    },
-    {
-      "src": "/manifest.json",
-      "dest": "client/build/manifest.json"
-    },
-    {
-      "src": "/robots.txt",
-      "dest": "client/build/robots.txt"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "client/build/index.html"
+      "source": "/api/:path*",
+      "destination": "/api"
     }
   ]
 }
