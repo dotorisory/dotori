@@ -1,9 +1,31 @@
 {
-  "rewrites": [
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/programs", "destination": "/programs.html" },
-    { "source": "/schedule", "destination": "/schedule.html" },
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/team", "destination": "/team.html" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|json|woff|woff2|ttf|eot))",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(about|programs|schedule|contact|team)",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/",
+      "dest": "/index.js"
+    }
   ]
 }
