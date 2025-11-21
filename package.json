@@ -1,20 +1,29 @@
 {
-  "name": "node",
+  "name": "dotori-school-mern",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Dotori School MERN Stack Application",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index.js",
+    "server": "cd server && npm start",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm run build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "education",
+    "school",
+    "mern",
+    "react",
+    "mongodb",
+    "express",
+    "nodejs"
+  ],
+  "author": "Dotori School",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.1",
-    "express": "^5.1.0",
-    "nodemailer": "^7.0.5"
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

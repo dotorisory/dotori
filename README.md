@@ -1,38 +1,233 @@
-# Dotori School Node.js Email Backend
+# Dotori School - MERN Stack Application
 
-This is a simple Node.js backend for handling contact form submissions and sending emails to info@dotorischool.org using Nodemailer.
+A full-stack web application for Dotori School, an afterschool program in the Redmond/Bellevue area. Built with MongoDB, Express.js, React, and Node.js (MERN stack).
 
 ## Features
-- Express.js server
-- POST /contact endpoint
-- Sends email to info@dotorischool.org
-- Uses environment variables for SMTP credentials
 
-## Setup
-1. Copy `.env` and fill in your SMTP credentials.
-2. Run `npm install` if needed.
-3. Start the server:
-   ```sh
-   node index.js
-   ```
+- **Frontend (React)**
+  - Responsive single-page application with React Router
+  - Home, About, Programs, Team, and Contact pages
+  - Interactive registration popup
+  - Contact form with multiple student support
 
-## Environment Variables (.env)
-- SMTP_HOST: Your SMTP server host
-- SMTP_PORT: SMTP port (e.g., 465 for SSL)
-- SMTP_SECURE: true for SSL, false for TLS
-- SMTP_USER: SMTP username
-- SMTP_PASS: SMTP password
-- PORT: Port to run the server (default 3001)
+- **Backend (Express + Node.js)**
+  - RESTful API endpoints
+  - Contact form submission handling
+  - Email notifications via Nodemailer
+  - MongoDB integration for data persistence
 
-## Example Request
-POST /contact
-```json
-{
-  "name": "Your Name",
-  "email": "your@email.com",
-  "message": "Hello!"
-}
+- **Database (MongoDB)**
+  - Contact submissions storage
+  - Student information management
+  - Newsletter subscription tracking
+
+## Project Structure
+
+```
+dotori/
+├── client/                # React frontend
+│   ├── public/           # Static assets
+│   │   └── assets/       # Images, PDFs, etc.
+│   ├── src/
+│   │   ├── components/   # React components (Header, etc.)
+│   │   ├── pages/        # Page components (Home, About, etc.)
+│   │   ├── App.js        # Main App component with routing
+│   │   └── styles.css    # Global styles
+│   └── package.json
+│
+├── server/               # Express backend
+│   ├── api/             # API route handlers
+│   │   └── contact.js   # Contact form handler
+│   ├── config/          # Configuration files
+│   │   └── db.js        # MongoDB connection
+│   ├── models/          # Mongoose models
+│   │   └── Contact.js   # Contact schema
+│   ├── index.js         # Server entry point
+│   ├── .env             # Environment variables
+│   └── package.json
+│
+├── public/              # Original static HTML files (archived)
+├── package.json         # Root package.json
+└── README.md
 ```
 
-## Security
-Never commit real SMTP credentials to version control.
+## Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (local installation or MongoDB Atlas account)
+- npm or yarn package manager
+- SMTP credentials (for email functionality)
+
+## Installation
+
+### 1. Install all dependencies
+
+```bash
+npm run install-all
+```
+
+Or manually:
+
+```bash
+# Install root dependencies
+npm install
+
+# Install server dependencies
+cd server && npm install
+
+# Install client dependencies
+cd ../client && npm install
+```
+
+### 2. Set up environment variables
+
+Create a `.env` file in the `server/` directory:
+
+```env
+# MongoDB
+MONGODB_URI=mongodb://localhost:27017/dotori-school
+# Or use MongoDB Atlas:
+# MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/dotori-school
+
+# Server
+PORT=3001
+
+# SMTP Configuration
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+```
+
+### 3. Start MongoDB
+
+If using local MongoDB:
+
+```bash
+# Start MongoDB service
+mongod
+```
+
+Or use MongoDB Atlas (cloud database) - update MONGODB_URI in .env
+
+## Running the Application
+
+### Development Mode (Recommended)
+
+Run both client and server concurrently:
+
+```bash
+npm run dev
+```
+
+This will start:
+- React dev server on http://localhost:3000
+- Express API server on http://localhost:3001
+
+### Production Mode
+
+Build and run:
+
+```bash
+# Build React app
+npm run build
+
+# Start server (serves built React app)
+NODE_ENV=production npm start
+```
+
+### Run Separately
+
+```bash
+# Terminal 1 - Start server
+npm run server
+
+# Terminal 2 - Start client
+npm run client
+```
+
+## API Endpoints
+
+### Contact Form
+- **POST** `/api/contact` - Submit contact form
+  ```json
+  {
+    "parentFirstName": "John",
+    "parentLastName": "Doe",
+    "email": "john@example.com",
+    "phone": "123-456-7890",
+    "students": [
+      {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "grade": "2nd"
+      }
+    ],
+    "message": "Interested in programs",
+    "newsletter": true
+  }
+  ```
+
+### Get Contacts (Admin)
+- **GET** `/api/contacts` - Get all contact submissions
+- **GET** `/api/contacts/:id` - Get single contact by ID
+- **DELETE** `/api/contacts/:id` - Delete contact
+
+## Scripts
+
+- `npm run dev` - Run client and server concurrently
+- `npm run server` - Run server only
+- `npm run client` - Run client only
+- `npm run build` - Build React app for production
+- `npm start` - Run production server
+- `npm run install-all` - Install all dependencies
+
+## Technologies Used
+
+### Frontend
+- React 19.2
+- React Router DOM 7.9
+- Axios 1.13
+- CSS3
+
+### Backend
+- Node.js
+- Express.js 5.1
+- Mongoose (MongoDB ODM)
+- Nodemailer 7.0
+- CORS 2.8
+- dotenv 17.2
+
+### Database
+- MongoDB
+
+## Security Notes
+
+- Never commit `.env` files to version control
+- Use app passwords for Gmail SMTP (not your main password)
+- Enable 2FA and create app-specific passwords in Gmail
+- Validate and sanitize all user inputs
+- Use HTTPS in production
+
+## Deployment
+
+### Vercel (Frontend + Backend)
+1. Connect GitHub repository
+2. Set environment variables in Vercel dashboard
+3. Deploy
+
+### Heroku (Alternative)
+1. Create Heroku app
+2. Set config vars (environment variables)
+3. Connect to MongoDB Atlas
+4. Deploy
+
+## Contact
+
+- **Email:** info@dotorischool.org
+- **Address:** 12721 NE Bel Red Rd. #220 (2nd Floor), Bellevue WA 98005
+
+## License
+
+© 2025 Dotori School. All rights reserved.
