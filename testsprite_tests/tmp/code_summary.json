@@ -1,0 +1,107 @@
+{
+  "tech_stack": ["HTML", "CSS", "JavaScript", "Node.js", "Express", "Nodemailer"],
+  "features": [
+    {
+      "name": "Homepage",
+      "description": "Main landing page with hero section, program overview, registration popup, and school information",
+      "files": ["public/index.html", "public/styles.css"]
+    },
+    {
+      "name": "About Page",
+      "description": "Information about Dotori School's mission, values, and educational approach",
+      "files": ["public/about.html", "public/styles.css"]
+    },
+    {
+      "name": "Team Page",
+      "description": "Display of teacher profiles including Yesol Jung (Founder) and Stephanie Jung (Teacher) with their credentials and experience",
+      "files": ["public/team.html", "public/profile-responsive.css", "public/styles.css"]
+    },
+    {
+      "name": "Programs Page",
+      "description": "Overview of educational programs offered including reading, writing, Korean language, and math courses",
+      "files": ["public/programs.html", "public/styles.css"]
+    },
+    {
+      "name": "Contact Page",
+      "description": "Contact form for parents to reach out with inquiries and student information",
+      "files": ["public/contact.html", "public/styles.css"]
+    },
+    {
+      "name": "Schedule Page",
+      "description": "Class schedule information and timing details",
+      "files": ["public/schedule.html", "public/styles.css"]
+    },
+    {
+      "name": "Contact Form API",
+      "description": "Backend API endpoint to handle contact form submissions and send emails via Nodemailer",
+      "files": ["api/contact.js", "index.js"],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "Dotori School Contact API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/api/contact": {
+            "post": {
+              "summary": "Submit contact form",
+              "requestBody": {
+                "required": true,
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "required": ["parentFirstName", "parentLastName", "email", "phone", "students"],
+                      "properties": {
+                        "parentFirstName": {
+                          "type": "string"
+                        },
+                        "parentLastName": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string",
+                          "format": "email"
+                        },
+                        "phone": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "newsletter": {
+                          "type": "boolean"
+                        },
+                        "students": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "minItems": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "responses": {
+                "200": {
+                  "description": "Email sent successfully"
+                },
+                "400": {
+                  "description": "Missing required fields"
+                },
+                "405": {
+                  "description": "Method not allowed"
+                },
+                "500": {
+                  "description": "Failed to send email"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
