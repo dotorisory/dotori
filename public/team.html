@@ -52,20 +52,6 @@
                 </ul>
                 <p style="text-align:center; margin:1rem 0 0 0;"><a href="mailto:yesoljung@dotorischool.org" style="color:#6b5b47; text-decoration:underline; font-size:0.95rem;">yesoljung@dotorischool.org</a></p>
             </section>
-            
-            <section class="profile-card">
-                <img src="assets/images/stephanie_profile.jpeg" alt="Teacher Stephanie" class="profile-img">
-                <h2>Stephanie Jung</h2>
-                <h2>(Ms.Stephanie)</h2>
-                <h3>Teacher</h3>
-                <ul class="profile-details">
-                    <li><strong>Education:</strong> A.A., Irvine Valley College; TEFL Certificate, University of California, Irvine</li>
-                    <li><strong>Certifications:</strong> TEFL Certified, OPI Trained Korean Instructor</li>
-                    <li><strong>Experience:</strong> Currently teaching Korean in the SOFTS program, working with U.S. military members. Experienced in teaching children and adults through creative, student-centered lessons.</li>
-                    <li><strong>Specialty:</strong> Korean Language Learning, Student Engagement</li>
-                </ul>
-                <p style="text-align:center; margin:1rem 0 0 0;"><a href="mailto:stephaniejung@dotorischool.org" style="color:#6b5b47; text-decoration:underline; font-size:0.95rem;">stephaniejung@dotorischool.org</a></p>
-            </section>
             <!-- Add more team members here as needed -->
         </section>
     </main>
@@ -198,10 +184,14 @@
     <style>
     /* Responsive team grid layout */
     .profile-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+        display: flex;
+        justify-content: center;
         align-items: start;
+    }
+
+    .profile-card {
+        max-width: 600px;
+        width: 100%;
     }
     
     /* Profile image styling */
@@ -214,12 +204,6 @@
         margin: 0 auto 1rem auto;
         display: block;
     }
-    
-    /* Specific styling for Stephanie's photo to zoom in */
-    img[src*="stephanie_profile"] {
-        object-position: center top;
-    }
-    
     @media (max-width: 768px) {
         .profile-container {
             grid-template-columns: 1fr;
