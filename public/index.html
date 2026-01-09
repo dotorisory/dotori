@@ -8,33 +8,32 @@
     <link rel="icon" type="image/x-icon" href="assets/images/logo.png">
 </head>
 <body>
-    <!-- Registration Popup -->
+    <!-- Registration Popup (disabled)
     <div id="registrationPopup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 9999; font-family: Arial, sans-serif;">
         <div style="background: #f8f6f3; padding: 30px 35px; border-radius: 15px; max-width: 480px; width: 90%; text-align: left; box-shadow: 0 8px 32px rgba(0,0,0,0.3); position: relative; line-height: 1.5;">
             <button id="closePopup" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; color: #999; cursor: pointer; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">&times;</button>
-            <div style="background: #f8f6f3; padding: 20px; border-radius: 10px; margin-bottom: 20px;">                
+            <div style="background: #f8f6f3; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
                 <h2 style="margin: 0 0 15px 0; color: #2c5282; font-weight: 600;">
                     <span style="font-size: 20px;">❄️</span> Winter Quarter Registration is Now Open!
                 </h2>
-                
+
                 <div style="margin-left: 20px; margin-bottom: 15px;">
-                    
+
                     <p style="margin: 8px 0; color: #333;">
                         <strong>New Student Registration — Early Bird (15% off Tuition)</strong><br>
                         <span style="font-size: 16px;">👉</span> December 6 – 15
                     </p>
-                    
+
                     <p style="margin: 8px 0; color: #333;">
                         <strong>General Registration Deadline</strong><br>
                         <span style="font-size: 16px;">👉</span> December 28
                     </p>
                 </div>
-                
+
                 <p style="margin: 15px 0 10px 0; color: #d2691e; font-weight: 600; font-size: 15px;">
                     Max 4 students per class — spots fill quickly!
                 </p>
-                
-                <!--Register Now button winter theme-->
+
                 <div style="text-align: center; margin-top: 15px;">
                     <a href="/contact" style="position: relative; display: inline-block; padding: 12px 32px; background: #fff; color: #000; text-decoration: none; border-radius: 25px; font-weight: 700; font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 2px solid #e0e0e0; overflow: visible;">
                         Register Now
@@ -42,20 +41,21 @@
                     </a>
                 </div>
             </div>
-            
+
             <div style="margin-bottom: 20px;">
                 <label style="display: flex; align-items: center; gap: 8px; color: #666; cursor: pointer; font-size: 14px;">
                     <input type="checkbox" id="dontShowAgain" style="margin: 0;">
                     <span>Don't show me this again</span>
                 </label>
             </div>
-            
+
             <div style="text-align: center;">
                 <a href="/contact" style="display: inline-block; padding: 12px 24px; background: #6b5b47; color: #fff; text-decoration: none; border-radius: 25px; font-weight: 600; font-size: 16px; margin-right: 10px;">Contact Us</a>
                 <button id="closePopupBtn" style="padding: 12px 24px; background: #e0e0e0; color: #666; border: none; border-radius: 25px; cursor: pointer; font-weight: 600; font-size: 16px;">Close</button>
             </div>
         </div>
     </div>
+    -->
         <!-- Popup Container -->
         <!-- <div id="popup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 9999; font-family: Arial, sans-serif;">
             <div style="background: #fff; padding: 20px 30px; border-radius: 10px; max-width: 420px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative;">
@@ -244,22 +244,23 @@ Dotori is a great fit for families seeking small-group instruction, after-school
             navLinks.classList.toggle('nav-open');
         });
 
-        // Registration Popup functionality
+        // Registration Popup functionality (disabled)
+        /*
         const popup = document.getElementById('registrationPopup');
         const closeBtn = document.getElementById('closePopup');
         const closeBtn2 = document.getElementById('closePopupBtn');
         const dontShowAgainCheckbox = document.getElementById('dontShowAgain');
-        
+
         if (!popup) {
             console.error('Popup element not found');
             return;
         }
-        
+
         // Check if user has permanently dismissed popup
         const popupPermanentlyDismissed = localStorage.getItem('registrationPopupDismissed');
-        
+
         console.log('Popup permanently dismissed:', popupPermanentlyDismissed);
-        
+
         if (!popupPermanentlyDismissed) {
             // Show popup on every page load unless permanently dismissed
             console.log('Showing popup...');
@@ -269,16 +270,16 @@ Dotori is a great fit for families seeking small-group instruction, after-school
         } else {
             console.log('Popup permanently dismissed');
         }
-        
-        // For testing: Add this to browser console to reset popup: 
+
+        // For testing: Add this to browser console to reset popup:
         // localStorage.removeItem('registrationPopupDismissed'); sessionStorage.removeItem('registrationPopupShown'); location.reload();
-        
+
         // Close popup functionality
         function closeRegistrationPopup() {
             const dontShowAgain = dontShowAgainCheckbox && dontShowAgainCheckbox.checked;
-            
+
             popup.style.display = 'none';
-            
+
             if (dontShowAgain) {
                 // Permanently dismiss popup
                 localStorage.setItem('registrationPopupDismissed', 'true');
@@ -288,21 +289,22 @@ Dotori is a great fit for families seeking small-group instruction, after-school
                 console.log('Popup closed temporarily - will show on next page load');
             }
         }
-        
+
         if (closeBtn) {
             closeBtn.addEventListener('click', closeRegistrationPopup);
         }
-        
+
         if (closeBtn2) {
             closeBtn2.addEventListener('click', closeRegistrationPopup);
         }
-        
+
         // Close popup when clicking outside
         popup.addEventListener('click', function(e) {
             if (e.target === popup) {
                 closeRegistrationPopup();
             }
         });
+        */
 
         // Hide Elfsight watermark/attribution link
         function hideElfsightWatermark() {
