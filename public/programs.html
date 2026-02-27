@@ -23,8 +23,10 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/team">Our Team</a></li>
+                <li><a href="/calendar">Calendar</a></li>
                 <li><a href="/programs" class="active">Programs</a></li>
                 <li><a href="/contact">Contact</a></li>
+                <!-- <li id="nav-account-link"><a href="/login">My Account</a></li> -->
             </ul>
         </nav>
     </header>
@@ -41,65 +43,35 @@
                 <div class="filter-tab" onclick="filterPrograms('writing')">Writing</div>
                 <div class="filter-tab" onclick="filterPrograms('creative')">Korean</div>
                 <div class="filter-tab" onclick="filterPrograms('tutor')">1:1</div>
-                <div class="filter-tab" onclick="filterPrograms('extend')">Extended Hours</div>
+                <div class="filter-tab" onclick="filterPrograms('summer')">Summer Camp</div>
             </div>
 
             <div class="programs-grid" id="programsGrid">
                 <div class="program-card animate-in" data-category="tutor">
                     <h3>1:1 Tutoring</h3>
-                    <div class="program-duration">Available on Saturdays · Flexible scheduling with the instructor</div>
+                    <div class="program-duration">Flexible scheduling with the instructor</div>
                     <ul class="program-features">
                         <li>Arrange sessions directly with the instructor to fit your schedule</li>
-                        <li>Personalized support in reading, writing, or homework help</li>
+                        <li>Personalized support in any academic area</li>
                         <li>Tailored lessons to meet each student’s unique needs</li>
                     </ul>
                     <div class="program-cta">
                         <a href="/contact" class="btn btn-primary" style="width:100%;text-align:center;">Contact Us</a>
                     </div>
                 </div>
-                <div class="program-card animate-in" data-category="extend">
-                    <h3>Dotori Lounge</h3>
-                    <div class="program-duration">Ongoing · Available for Dotori students only</div>
-                    <div class="program-description">
-                        Dotori Lounge is an open space available for students before and after their class. It's a comfortable place to settle in, unwind, and enjoy purposeful activities at a relaxed pace.
-                    </div>
-                    <ul class="program-features">
-                        <li>Get ready for class or wind down before/after lessons</li>
-                        <li>Work on homework independently</li>
-                        <li>Play educational board games and Korean language games</li>
-                        <li>Read books from the Dotori Library</li>
-                        <li>Join rotating enrichment activities such as:
-                            <ul style="margin-top: 0.5rem; margin-left: 1rem; list-style-type: disc;">
-                                <li>Art of the Month</li>
-                                <li>Math Mystery</li>
-                                <li>Word Ladder & word games</li>
-                                <li>Seasonal STEAM mini-activities</li>
-                            </ul>
-                        </li>
-                        <li>Flexible pickup time — no rush for parents</li>
-                    </ul>
-                </div>
                 <div class="program-card animate-in" data-category="reading">
                     <h3>Book Club</h3>
                     <div class="program-duration">10 weeks · 1 class/week · 90 minutes · Max 4 students/class</div>
                     <div class="program-schedule" style="margin: 1rem 0; padding: 0.75rem; background: #f8f6f3; border-radius: 8px; font-size: 0.9rem;">
                         📅 <strong>Class Schedule</strong><br>
-                        🟢 K–1 · Thu · 4:00–5:00 PM<br>
-                        🔵 Gr. 2–3 · Mon · 5:00–6:30 PM<br>
-                        🟣 Gr. 4–5 · Thu · 6:30–8:00 PM
+                        🟢 K–1 · Wed · 4:00–5:00 PM<br>
+                        🔵 Gr. 2–3 · Mon <em>or</em> Thu · 5:00–6:30 PM (choose one day)<br>
+                        🟣 Gr. 4–5 · Thu · 6:30–8:00 PM<br>
+                        🟤 Gr. 6–8 · Sat · 5:00–6:30 PM
                     </div>
-                    <div class="program-description">
-                        Strengthen core literacy skills while exploring both fiction and nonfiction stories that students choose themselves. Through guided reading, discussions, and collaborative projects, learners build the tools they need to read thoughtfully and with confidence.
-                    </div>
-                    <ul class="program-features">
-                        <li>Read two books (one fiction + one nonfiction) over 10 weeks</li>
-                        <li>Expand vocabulary and background knowledge</li>
-                        <li>Develop comprehension and close reading skills</li>
-                        <li>Practice communication through discussion, written responses, and projects</li>
-                        <li>Weekly homework to reinforce skills at home</li>
-                    </ul>
-                    <div class="program-cta">
-                        <a href="/assets/pdf/brochure_reading2.pdf" class="btn btn-primary" download style="width:100%;text-align:center;">Download Brochure</a>
+                    <div class="program-cta" style="display:flex; gap:0.5rem;">
+                        <a href="/assets/pdf/bookclub_english.pdf" class="btn btn-primary" download style="flex:1; text-align:center; display:flex; align-items:center; justify-content:center;">Course Description (English)</a>
+                        <a href="/assets/pdf/bookclub_korean.pdf" class="btn btn-primary" download style="flex:1; text-align:center; display:flex; align-items:center; justify-content:center;">수업 안내 (한국어)</a>
                     </div>
                 </div>
 
@@ -109,45 +81,26 @@
                     <div class="program-schedule" style="margin: 1rem 0; padding: 0.75rem; background: #f8f6f3; border-radius: 8px; font-size: 0.9rem;">
                         📅 <strong>Class Schedule</strong><br>
                         🔵 Gr. 2–3 · Tue · 6:00–7:00 PM<br>
-                        🟣 Gr. 4–5 · Mon · 7:00–8:00 PM<br>
-                        🟠 Gr. 6–8 · Wed · 7:00–8:00 PM
+                        🟣 Gr. 4–5 · Wed · 7:00–8:00 PM
                     </div>
-                    <div class="program-description">
-                        A focused program that strengthens reading comprehension through structured skill-building and guided practice. Students learn to understand texts more deeply and respond with clarity and confidence.
-                    </div>
-                    <ul class="program-features">
-                        <li>Improve reading accuracy and detail recognition</li>
-                        <li>Develop close reading strategies</li>
-                        <li>Apply skills for main idea, inference, and context clues</li>
-                        <li>Expand academic vocabulary</li>
-                        <li>Practice text-based responses</li>
-                        <li>Weekly homework to reinforce learning</li>
-                    </ul>
-                    <div class="program-cta">
-                        <a href="/contact" class="btn btn-primary" style="width:100%;text-align:center;">Contact Us</a>
+                    <div class="program-cta" style="display:flex; gap:0.5rem;">
+                        <a href="/assets/pdf/reading_english.pdf" class="btn btn-primary" download style="flex:1; text-align:center; display:flex; align-items:center; justify-content:center;">Course Description (English)</a>
+                        <a href="/assets/pdf/reading_korean.pdf" class="btn btn-primary" download style="flex:1; text-align:center; display:flex; align-items:center; justify-content:center;">수업 안내 (한국어)</a>
                     </div>
                 </div>
 
                 <div class="program-card animate-in" data-category="writing">
-                    <h3>Academic Writing Foundations</h3>
+                    <h3>Foundational Writing</h3>
                     <div class="program-duration">10 weeks · 1 class/week · 60 minutes · Max 4 students/class</div>
                     <div class="program-schedule" style="margin: 1rem 0; padding: 0.75rem; background: #f8f6f3; border-radius: 8px; font-size: 0.9rem;">
                         📅 <strong>Class Schedule</strong><br>
-                        🔵 Gr. 2–3 · Tue · 5:00–6:00 PM<br>
-                        🟣 Gr. 4–5 · Mon · 6:30–7:30 PM
+                        🔵 Gr. 2–3 · Tue · 4:00–5:00 PM (Persuasive Writing)<br>
+                        🔵 Gr. 2–3 · Tue · 5:00–6:00 PM (Narrative Writing)<br>
+                        🟣 Gr. 4–5 · Mon · 7:30–8:30 PM
                     </div>
-                    <div class="program-description">
-                        Build strong academic writing foundations by learning how to communicate ideas clearly, accurately, and with purpose. Students explore meaningful science and social studies topics while developing the language and structure needed for effective written expression.
-                    </div>
-                    <ul class="program-features">
-                        <li>Explore engaging informational topics to build background knowledge</li>
-                        <li>Learn academic and topic-specific vocabulary to enhance clarity and expression</li>
-                        <li>Develop writing skills step-by-step: sentence → paragraph → short composition</li>
-                        <li>Practice key writing purposes used across subjects (describe, explain, persuade)</li>
-                        <li>Weekly homework to reinforce skills at home</li>
-                    </ul>
-                    <div class="program-cta">
-                        <a href="/assets/pdf/brochure_writing2.pdf" class="btn btn-primary" download style="width:100%;text-align:center;">Download Brochure</a>
+                    <div class="program-cta" style="display:flex; gap:0.5rem;">
+                        <a href="/assets/pdf/writing_english.pdf" class="btn btn-primary" download style="flex:1; text-align:center; display:flex; align-items:center; justify-content:center;">Course Description (English)</a>
+                        <a href="/assets/pdf/writing_korean.pdf" class="btn btn-primary" download style="flex:1; text-align:center; display:flex; align-items:center; justify-content:center;">수업 안내 (한국어)</a>
                     </div>
                 </div>
 
@@ -158,19 +111,9 @@
                         📅 <strong>Class Schedule</strong><br>
                         🟣 Gr. 3–6 · Sat · 1:30–3:00 PM
                     </div>
-                    <div class="program-description">
-                        A small-group writing workshop focused on revising, editing, and polishing writing with precision. Each student works on individual writing tasks while the teacher meets with students one-on-one throughout the session to provide personalized feedback for improvement. Perfect for learners who already write basic paragraphs and want to strengthen the quality, accuracy, and clarity of their writing.
-                    </div>
-                    <ul class="program-features">
-                        <li>Improve grammar, usage, and writing mechanics</li>
-                        <li>Apply editing (punctuation, capitalization, spelling)</li>
-                        <li>Strengthen clarity through purposeful revision</li>
-                        <li>Receive individualized 1:1 feedback during class</li>
-                        <li>Practice short compositions and text-based responses</li>
-                        <li>Weekly homework to reinforce skills</li>
-                    </ul>
-                    <div class="program-cta">
-                        <a href="/contact" class="btn btn-primary" style="width:100%;text-align:center;">Contact Us</a>
+                    <div class="program-cta" style="display:flex; gap:0.5rem;">
+                        <a href="/assets/pdf/workshop_english.pdf" class="btn btn-primary" download style="flex:1; text-align:center; display:flex; align-items:center; justify-content:center;">Course Description (English)</a>
+                        <a href="/assets/pdf/workshop_korean.pdf" class="btn btn-primary" download style="flex:1; text-align:center; display:flex; align-items:center; justify-content:center;">수업 안내 (한국어)</a>
                     </div>
                 </div>
 
@@ -191,28 +134,16 @@
                 </div> -->
 
                 <div class="program-card animate-in" data-category="creative">
-                    <h3>Korean Language for Beginners</h3>
+                    <h3>K-1 Hangeul (Korean Phonics)</h3>
                     <div class="program-duration">10 weeks · 1 class/week · 90 minutes · Max 4 students/class</div>
                     <div class="program-schedule" style="margin: 1rem 0; padding: 0.75rem; background: #f8f6f3; border-radius: 8px; font-size: 0.9rem;">
                         📅 <strong>Class Schedule</strong><br>
-                        🟢 K–1 · Fri · 4:30–6:00 PM<br>
-                        🔵 Gr. 2–3 · Wed · 2:30–4:00 PM<br>
-                        🟣 Gr. 4–5 · Wed · 5:00–6:30 PM<br>
-                        🟤 Gr. 6–8 · Sat · 3:30–5:00 PM<br>
-                        ⚫ Adult · Fri · 7:00–8:00 PM
+                        🟢 K–1 Lev.1 · Sat · 3:30–5:00 PM<br>
+                        🟢 K–1 Lev.2 · Wed · 2:30–4:00 PM <em>or</em> Fri · 4:30–6:00 PM (choose one day)
                     </div>
-                    <div class="program-description">
-                        A welcoming class for both heritage and non-heritage learners to build beginner Korean reading, writing, and speaking skills. Students learn Hangul, essential grammar, and useful expressions through stories and authentic Korean media, including K-pop, short video clips, and cultural content.
-                    </div>
-                    <ul class="program-features">
-                        <li>Develop Hangul reading fluency and spelling patterns</li>
-                        <li>Learn essential grammar for accurate communication</li>
-                        <li>Practice speaking through routines, role-play, and guided conversation</li>
-                        <li>Grow vocabulary through meaningful and engaging topics</li>
-                        <li>Weekly homework to reinforce learning</li>
-                    </ul>
-                    <div class="program-cta">
-                        <a href="/assets/pdf/brochure_korean2.pdf" class="btn btn-primary" download style="width:100%;text-align:center;">Download Brochure</a>
+                    <div class="program-cta" style="display:flex; gap:0.5rem;">
+                        <a href="/assets/pdf/hangeul_english.pdf" class="btn btn-primary" download style="flex:1; text-align:center; display:flex; align-items:center; justify-content:center;">Course Description (English)</a>
+                        <a href="/assets/pdf/hangeul_korean.pdf" class="btn btn-primary" download style="flex:1; text-align:center; display:flex; align-items:center; justify-content:center;">수업 안내 (한국어)</a>
                     </div>
                 </div>
 
@@ -221,41 +152,30 @@
                     <div class="program-duration">10 weeks · 1 class/week · 90 minutes · Max 4 students/class</div>
                     <div class="program-schedule" style="margin: 1rem 0; padding: 0.75rem; background: #f8f6f3; border-radius: 8px; font-size: 0.9rem;">
                         📅 <strong>Class Schedule</strong><br>
-                        🟣 Open to all advanced Korean readers · Fri · 6:30–8:00 PM<br>
+                        🟣 Gr. 3–6 · Fri · 6:30–8:00 PM<br>
                         <em>(Students must already read and write in Korean fluently)</em>
                     </div>
-                    <div class="program-description">
-                        A deep reading and discussion class offered in a full Korean immersion environment. Students explore various genres—fiction, nonfiction, informational texts, folktales, and poetry—while strengthening comprehension, vocabulary, and academic communication in Korean.
-                    </div>
-                    <ul class="program-features">
-                        <li>Master advanced sentence structures and grammar patterns</li>
-                        <li>Apply close reading strategies to understand complex texts</li>
-                        <li>Expand both everyday and academic vocabulary</li>
-                        <li>Engage in Korean-only discussions to express ideas clearly and confidently</li>
-                        <li>Build Korean literacy for real-world communication and academic success</li>
-                    </ul>
-                    <div class="program-cta">
-                        <a href="/assets/pdf/brochure_korean2.pdf" class="btn btn-primary" download style="width:100%;text-align:center;">Download Brochure</a>
+                    <div class="program-cta" style="display:flex; gap:0.5rem;">
+                        <a href="/assets/pdf/korean_bookclub_english.pdf" class="btn btn-primary" download style="flex:1; text-align:center; display:flex; align-items:center; justify-content:center;">Course Description (English)</a>
+                        <a href="/assets/pdf/korean_bookclub_korean.pdf" class="btn btn-primary" download style="flex:1; text-align:center; display:flex; align-items:center; justify-content:center;">수업 안내 (한국어)</a>
                     </div>
                 </div>
 
-                <div class="program-card animate-in" data-category="creative">
-                    <h3>Korean Event Classes <span style="color:#b48b5f; font-size:1rem; font-weight:500;">(Coming Soon)</span></h3>
-                    <div class="program-duration">TBD</div>
-                    <div class="program-description">
-                        One-day Korean cultural and language experiences for all ages.
+                <div class="program-card animate-in" data-category="summer">
+                    <h3>Summer Camp</h3>
+                    <div class="program-schedule" style="margin: 1rem 0; padding: 0.75rem; background: #f8f6f3; border-radius: 8px; font-size: 0.9rem;">
+                        📅 <strong>Session Schedule</strong><br>
+                        🔵 Gr. 2–3 · June 22 – July 3<br>
+                        🟢 K–1 · July 6 – July 17<br>
+                        🟣 Gr. 4–5 · July 20 – July 31<br>
+                        🟣 Gr. 4–5 · August 3 – August 14
                     </div>
-                    <ul class="program-features">
-                        <li>Themed activities such as art, read-alouds, and games</li>
-                        <li>Seasonal events tied to Korean holidays and traditions</li>
-                        <li>Hands-on, interactive learning in a fun setting</li>
-                    </ul>
                     <div class="program-cta">
-                        <a href="/contact" class="btn btn-primary" style="width:100%;text-align:center; background:#b48b5f; border:none;">Join Waitlist</a>
+                        <a href="/contact" class="btn btn-primary" style="width:100%;text-align:center;">Contact Us</a>
                     </div>
                 </div>
 
-
+            </div>
         </div>
     </main>
 
@@ -473,5 +393,18 @@
         }
     }
     </style>
+<script>
+  (function() {
+    fetch('/api/auth/me').then(r => r.json()).then(data => {
+      var el = document.getElementById('nav-account-link');
+      if (!el) return;
+      if (data.user) {
+        el.innerHTML = data.user.role === 'admin'
+          ? '<a href="/admin">Admin</a>'
+          : '<a href="/profile">My Account</a>';
+      }
+    });
+  })();
+</script>
 </body>
 </html>
