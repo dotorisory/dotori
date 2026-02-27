@@ -4,6 +4,7 @@
     { "source": "/programs", "destination": "/programs.html" },
     { "source": "/schedule", "destination": "/schedule.html" },
     { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/team", "destination": "/team.html" }
+    { "source": "/team", "destination": "/team.html" },
+    { "source": "/calendar", "destination": "/calendar.html" }
   ]
 }
